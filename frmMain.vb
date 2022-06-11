@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class frmMain
     Private _currentPhoto As String
     Private _SelectedCamera As Integer
     Public Property SelectedCamera As Integer
@@ -71,8 +71,17 @@
     Private Sub btnCapture_Click(sender As Object, e As EventArgs) Handles btnCapture.Click
         CurrentPhoto = GenImageFileName()
         vg1.CaptureFrameTo(VidGrab.TFrameCaptureDest.fc_JpegFile, CurrentPhoto())
-        pb1.Image = System.Drawing.Image.FromFile(CurrentPhoto)
-        pb1.BringToFront()
+        Try
+            If My.Settings.mboolConfirmImagebyOpeningFolder = True Then
+                System.Diagnostics.Process.Start(My.Settings.ImageFolder)
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show("You need to update your Image folder in Settings to continue")
+        End Try
+        ' pb1.Image = System.Drawing.Image.FromFile(CurrentPhoto)
+        ' pb1.BringToFront()
         Call btnSave_Click(sender, e)
 
     End Sub
@@ -96,9 +105,9 @@
 
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        pb1.Image = Nothing
-        pb1.Dispose()
-        Me.Close()
+        '   pb1.Image = Nothing
+        ' pb1.Dispose()
+        ' Me.Close()
 
     End Sub
     Private Sub frmTakePhoto_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -109,9 +118,9 @@
 
     End Sub
     Private Sub btnClearImage_Click(sender As Object, e As EventArgs) Handles btnClearImage.Click
-        pb1.Image = Nothing
+        '    pb1.Image = Nothing
         CurrentPhoto = Nothing
-        pb1.SendToBack()
+        '   pb1.SendToBack()
 
 
     End Sub

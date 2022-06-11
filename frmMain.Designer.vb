@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.vg1 = New VidGrab.VideoGrabber()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
@@ -33,9 +33,7 @@ Partial Class Form1
         Me.btnSave = New System.Windows.Forms.ToolStripButton()
         Me.btnClearImage = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.pb1 = New System.Windows.Forms.PictureBox()
         Me.ToolStrip1.SuspendLayout()
-        CType(Me.pb1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'vg1
@@ -421,6 +419,7 @@ Partial Class Form1
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(23, 22)
         Me.btnSave.Text = "Save"
+        Me.btnSave.Visible = False
         '
         'btnClearImage
         '
@@ -430,6 +429,7 @@ Partial Class Form1
         Me.btnClearImage.Name = "btnClearImage"
         Me.btnClearImage.Size = New System.Drawing.Size(23, 22)
         Me.btnClearImage.Text = "Clear"
+        Me.btnClearImage.Visible = False
         '
         'ToolStripButton2
         '
@@ -439,29 +439,18 @@ Partial Class Form1
         Me.ToolStripButton2.Size = New System.Drawing.Size(78, 22)
         Me.ToolStripButton2.Text = "Settings..."
         '
-        'pb1
-        '
-        Me.pb1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pb1.Location = New System.Drawing.Point(0, 0)
-        Me.pb1.Name = "pb1"
-        Me.pb1.Size = New System.Drawing.Size(800, 450)
-        Me.pb1.TabIndex = 2
-        Me.pb1.TabStop = False
-        '
-        'Form1
+        'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.vg1)
-        Me.Controls.Add(Me.pb1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form1"
+        Me.Name = "frmMain"
         Me.Text = "Webcam Photo Utility"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        CType(Me.pb1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -475,7 +464,6 @@ Partial Class Form1
     Friend WithEvents cboSize As ToolStripComboBox
     Friend WithEvents btnCapture As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
-    Friend WithEvents pb1 As PictureBox
     Friend WithEvents btnSave As ToolStripButton
     Friend WithEvents btnClearImage As ToolStripButton
 End Class
